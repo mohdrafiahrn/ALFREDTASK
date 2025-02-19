@@ -6,7 +6,7 @@ const navigation = [
   
   { name: 'Home', href: '/', current: false },
   { name: 'Add quiz', href: '/admin', current: false },
-  { name: 'Leaderboard', href: 'https://alfredtask-sigma.vercel.app/leaderboard', current: false },
+  { name: 'Leaderboard', href: '/leaderboard', current: false },
   { name: 'Contact Us', href: '#', current: false },
 ]
 
