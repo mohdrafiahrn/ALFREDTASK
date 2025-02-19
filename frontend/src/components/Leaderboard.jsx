@@ -6,7 +6,7 @@ const Leaderboard = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/flashcards/scores")
+        axios.get("https://alfredtask-r6pc.onrender.com/api/flashcards/scores")
             .then((response) => setScores(response.data))
             .catch((error) => console.error("Error fetching leaderboard:", error));
     }, []);
