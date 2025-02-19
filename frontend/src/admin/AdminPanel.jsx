@@ -10,10 +10,10 @@ const AdminPanel = () => {
     const formRef = useRef(null);
     useEffect(() => {
         fetchFlashcards();
-    }, []);
+    }, [flashcards]);
     const fetchFlashcards = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/flashcards");
+            const response = await axios.get("https://alfredtask-r6pc.onrender.com/api/flashcards");
             setFlashcards(response.data);
         } catch (error) {
             console.error("Error fetching flashcards:", error);
@@ -26,7 +26,7 @@ const AdminPanel = () => {
     };
     const addFlashcard = async () => {
         try {
-            await axios.post("http://localhost:5000/api/flashcards", newFlashcard);
+            await axios.post("https://alfredtask-r6pc.onrender.com/api/flashcards", newFlashcard);
             fetchFlashcards();
             setNewFlashcard({ question: "", options: ["", "", "", ""], correctAnswer: "", level: "Beginner" });
         } catch (error) {
@@ -37,7 +37,7 @@ const AdminPanel = () => {
         try {
             const parsedData = JSON.parse(jsonInput);
 
-            await axios.post("http://localhost:5000/api/flashcards", parsedData);
+            await axios.post("https://alfredtask-r6pc.onrender.com/api/flashcards", parsedData);
             fetchFlashcards();
             setJsonInput(""); 
             alert("Multiple questions added successfully!");
@@ -69,7 +69,7 @@ const AdminPanel = () => {
     const updateFlashcard = async () => {
         if (!editingFlashcard) return;
         try {
-            await axios.put(`http://localhost:5000/api/flashcards/${editingFlashcard._id}`, newFlashcard);
+            await axios.put(`https://alfredtask-r6pc.onrender.com/api/flashcards/${editingFlashcard._id}`, newFlashcard);
             fetchFlashcards();
             setEditingFlashcard(null);
             setNewFlashcard({ question: "", options: ["", "", "", ""], correctAnswer: "", level: "Beginner" });
@@ -80,7 +80,7 @@ const AdminPanel = () => {
 
     const deleteFlashcard = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/flashcards/${id}`);
+            await axios.delete(`https://alfredtask-r6pc.onrender.com/api/flashcards/${id}`);
             fetchFlashcards();
         } catch (error) {
             console.error("Error deleting flashcard:", error);
