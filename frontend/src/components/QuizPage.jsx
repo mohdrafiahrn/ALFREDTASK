@@ -16,7 +16,7 @@ const QuizPage = () => {
 
    
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/flashcards/level/${level}`)
+        axios.get(`https://alfredtask-r6pc.onrender.com/api/flashcards/level/${level}`)
             .then((response) => setQuestions(response.data))
             .catch((error) => console.error("Error fetching questions:", error));
     }, [level]);
@@ -82,7 +82,7 @@ const QuizPage = () => {
         if (!playerName.value) return;
     
         try {
-            await axios.post("http://localhost:5000/api/flashcards/scores", {
+            await axios.post("https://alfredtask-r6pc.onrender.com/api/flashcards/scores", {
                 name: playerName.value,
                 score: score
             });
